@@ -28,18 +28,18 @@ Make sure you include the following pages:
 - Show 5 most recent tweets of all public tweets sorted by latest.
 #### Create a new User (3 pts)
 - Include the following Username, Password, Image, Background Image
-#### Search Tweets (2 pts)
+#### Search AddTweets (2 pts)
 - Show results of searched tweets
 
 ### While the User IS logged In (10 pts)
 #### Home (2 pts)
 - Show 5 most recent tweets of all tweets sorted by latest.
-#### Personal Tweets (5 pts)
+#### Personal AddTweets (5 pts)
 - Add New Tweet
 - - Include a required Tweet message and optional image URL for each tweet 
 - - Include a checkbox for tweets to only be seen by logged in user (private tweets)
 - Include edit button for each tweet only by creator of tweet
-#### Search Tweets (3 pts)
+#### Search AddTweets (3 pts)
 - Show results of searched tweets.
 
 ### Notes
