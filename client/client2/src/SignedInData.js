@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 
-class SignedInData extends Component{
+class SignedInData extends Component {
     constructor(props) {
         super(props);
-        this.state={
+        this.state = {
             signedIn: false,
             message: "",
         };
     }
 
-    TweetSubmit=(e)=>{
+    TweetSubmit = (e) => {
         e.preventDefault();
 
-        fetch('/index/add',{
+        fetch('/users/', {
             method: 'POST',
             headers: {
                 "Accept": "application/json",
@@ -24,23 +24,26 @@ class SignedInData extends Component{
                 password: e.target.password.value,
             }),
         })
-            .then(data=>data.text())
-            .then(response=>this.setState({message: response}));
+            .then(data => data.text())
+            .then(response => this.setState({message: response}));
     };
 
-    render(){
-        if (!this.props.logInfo.loggedIn){
-            return(<div>
-                <h1>Please SignIN!!!</h1>
-            </div>);
+    render() {
+        if (!this.props.signedIn) {
+            return (<div>
+                <h1>Sorry you are not logged In</h1>
+            </div>)
         }
-        else {
-            return (
+        else
+        {return (
                 <div>
-                    <h1>Welcome {this.props.logInfo.username}</h1>
+                    <h1>
+                        Welcome {this.props.logInfo.username}
+                    </h1>
                     <form onSubmit={this.TwitterSubmit}>
                         <p>
-
+                            <label htmlFor={'tweets'}>Tell It All:</label>
+                            <input type="text"id={'tweets'}name={'tweets'}/>
                         </p>
                         <button>Submit</button>
                     </form>
@@ -51,4 +54,5 @@ class SignedInData extends Component{
     }
 }
 
-export default LoggedInData;
+
+export default SignedInData;

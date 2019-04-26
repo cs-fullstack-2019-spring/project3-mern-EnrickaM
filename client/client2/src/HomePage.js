@@ -4,15 +4,17 @@ import './App.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import NewUser from './NewUser'
 import UserSignIn from './SignedInData'
-import Profile from './Profile'
+// import Profile from './Profile'
 
 class HomePage extends Component{
     constructor(props) {
         super(props);
         this.state={
+            logInfo:{
             username:'',
             profileImage:'',
             LoggedIn:false,
+            }
         };
     }
 
@@ -29,12 +31,12 @@ class HomePage extends Component{
             username: "",
             image: "",
             loggedIn: false,
-        })
-        fetch('/')
+        });
+        fetch('/users')
             .then(data => {
                 return data.text();
             })
-    }
+    };
 
     render(){
 
@@ -48,8 +50,18 @@ class HomePage extends Component{
                     <Link className={'linkSpacing'} to='/signup'>Join Us Here</Link>
                     <Route exact path={'/'}component={()=><UserSignIn/>}/>
                     <Route path={"/signup"} component={()=><NewUser/>} />
-                    <Route path={'/logout'} component={()=><LogOut/>}/>
+                    {/*<Route path={'/logout'} component={()=><LogOut/>}/>*/}
                     </Router>
+                <form> <p>
+                    <label htmlFor={"username"}>Enter Username:</label>
+                    <input id={"username"} type="text" name='username' placeholder="Enter username" autoFocus/>
+                </p>
+                <p>
+                    <label htmlFor={"password"}>Enter password:</label>
+                    <input id={"password"} type="password" name='password' placeholder="Enter password"/>
+                </p>>
+                    <button >Sign In</button>
+                </form>
             </div>
         );
     }

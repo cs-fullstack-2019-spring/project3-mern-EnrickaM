@@ -5,14 +5,14 @@ class NewUser extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data:''
+            data:"",
         };
     }
 
 
     submitAddUserForm = (e) => {
         e.preventDefault();
-        fetch('/users/signup', {
+        fetch('/users/newuser', {
             method: 'POST',
             headers: {
                 "Accept": "application/json",
@@ -24,12 +24,14 @@ class NewUser extends Component {
                 profileImage:e.target.profileImage.value,
             }),
         })
+            // .then(data=>{return data.text()})
+            // .then(message=>this.setState({data:message}))
 };
 
     render() {
         return (
             <div>
-                <h1>Add User</h1>
+                <h1>New User Join Us Here</h1>
                 <form onSubmit={this.submitAddUserForm}>
                     <p>
                         <label htmlFor={"username"}>Enter Username:</label>
@@ -43,7 +45,7 @@ class NewUser extends Component {
                         <label htmlFor={"profileImage"}>ProfileImage:</label>
                         <input id={"profileImage"} type="profileImage" name='profileImage' placeholder="Pick your best photo"/>
                     </p>
-                    <button >Sign In</button>
+                    <button >Join Us now</button>
                 </form>
                 {this.state.data}
             </div>

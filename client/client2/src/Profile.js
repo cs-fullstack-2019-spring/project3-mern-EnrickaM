@@ -9,7 +9,7 @@ class Profile extends Component{
     }
     TweetsSubmit=(e)=>{
         e.preventDefault();
-            fetch('/users/addTweet');
+            fetch('/users/addTweet')
             {
             method:"POST",
             header:{
@@ -22,9 +22,9 @@ class Profile extends Component{
                     text:e.target.text.value,
                     imageURL:e.target.imageURL,
                  }
-            }),
+            })
 
-        })
+        }
 
     }
     .then(data=>data.text())
